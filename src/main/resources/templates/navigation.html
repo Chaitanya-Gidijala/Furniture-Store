@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/index :: head}"></head>
+
+
+<body>
+
+
+
+	<nav th:replace="~{fragments/index :: offer-nav}"></nav>
+	<nav th:replace="~{fragments/index :: navigation}"></nav>
+	<hr>
+	<!--  <div th:replace="dropdown :: dropdown"></div>-->
+
+	<div th:replace="~{home-carousel-images :: home-carousel-images}"></div>
+
+
+	<div th:replace="~{furniture :: furniture}"></div>
+	<h3 class="container">Latest Offers</h3>
+	<div th:replace="~{multicard-best-offers-carousel :: multicard-best-offers-carousel}"></div>
+
+	<div th:replace="~{about-us :: about-us}"></div>
+
+	<div th:replace="~{footer :: footer}"></div>
+
+</body>

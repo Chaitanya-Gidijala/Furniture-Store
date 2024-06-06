@@ -1,0 +1,33 @@
+
+
+@media only screen and (max-width: 767px) {
+	.navbar-toggler{
+		color: white;
+	}
+	.nav-link{
+		color: black;
+	}
+}
+@media only screen and (max-width: 320px) {
+	.image-card{
+		height: 20px;
+	}
+	.card-text{
+		font-size: 12px;
+	}
+	.navbar-brand{
+		font-size: 1.3rem;
+	}
+
+}
+@media (min-width: 464px) and (max-width: 768px) {
+  .row-cols-md-2 > .col {
+    flex: 0 0 calc(50% - 8px); /* Adjust width to fit two columns with spacing */
+    max-width: calc(50% - 8px); /* Adjust max-width to fit two columns with spacing */
+  }
+  .card-text{
+		font-size: 12px;
+	}
+}
+
+

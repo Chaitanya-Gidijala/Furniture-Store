@@ -1,0 +1,140 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/index :: head">
+
+</head>
+
+<body>
+
+	<nav th:replace="fragments/index :: offer-nav"></nav>
+
+	<nav th:replace="fragments/index :: navigation"></nav>
+	<div class="row">
+		<div class="container col" style="margin-top: 5rem">
+			<div class="col-md-7 col-lg-6 ml-auto p-3 justify-content-center image-registration-form">
+				<form th:action="@{/upload}" method="post" class="inner-form mt-5 ml-auto  mh-100 ml-50">
+					<h3 class="text-center pb-3 form-heading pt-2">Add Product Details</h3>
+
+					<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+					<div class="row p-4 p-auto">
+
+						<div class="input-group col-lg-12 mb-4">
+							<select id="job" name="category"
+								class="form-control custom-select bg-white border-left-0 border-md">
+								<option th:value="sofa">sofa</option>
+								<option th:value="seating">Seating</option>
+								<option th:value="coffeeTable">Coffee Tables</option>
+								<option th:value="wardrobes">wardrobes</option>
+								<option th:value="beds">Beds</option>
+								<option th:value="bookshelves">Bookshelves</option>
+								<option th:value="shoeRack">ShoeRack</option>
+								<option th:value="dining">Dinning</option>
+								<option th:value="studyTable">StudyTable</option>
+								<option th:value="tvUnits">TvUnits</option>
+								<option th:value="bestSellers">BestSellers</option>
+							</select>
+						</div>
+
+						<div class="input-group col-lg-6 mb-4">
+							<input id="productName" type="text" name="productName" placeholder="Enter Product Name"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+
+						<div class="input-group col-lg-6 mb-4">
+							<input id="productPath" type="text" name="productPath" placeholder="Enter Image URL"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+						<div class="input-group col-lg-6 mb-4">
+							<input id="originalPrice" type="text" name="originalPrice"
+								placeholder="Enter Original Price" class="form-control bg-white border-left-0 border-md"
+								required>
+						</div>
+						<div class="input-group col-lg-6 mb-4">
+							<input id="extrOfferPrice" type="text" name="extraOfferPrice"
+								placeholder="Enter Offer Price" class="form-control bg-white border-left-0 border-md"
+								required>
+						</div>
+						<div class="input-group col-lg-6 mb-4">
+							<input id="productprice" type="text" name="productPrice" placeholder="Enter Product Price"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+
+						<div class="input-group col-lg-12 mb-4">
+							<input id="text" type="text" name="productDescription" placeholder="Enter Description"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+
+
+						<button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+
+
+
+		<div class="container col" style="margin-top: 5rem">
+			<div class="col-md-7 col-lg-6 ml-auto p-3 justify-content-center image-registration-form">
+				<form action="/upload1" method="post" class="inner-form mt-5 ml-auto  mh-100 ml-50">
+					<h3 class="text-center pb-3 form-heading pt-2">Add Best Offer Product Details</h3>
+
+					<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+					<div class="row p-4 p-auto">
+
+						<div class="input-group col-lg-12 mb-4">
+							<select id="job" name="category"
+								class="form-control custom-select bg-white border-left-0 border-md">
+								<option th:value="sofa">sofa</option>
+								<option th:value="seating">Seating</option>
+								<option th:value="coffeeTable">Coffee Tables</option>
+								<option th:value="wardrobes">wardrobes</option>
+								<option th:value="beds">Beds</option>
+								<option th:value="bookshelves">Bookshelves</option>
+								<option th:value="shoeRack">ShoeRack</option>
+								<option th:value="studyTable">StudyTable</option>
+								<option th:value="tvUnits">TvUnits</option>
+								<option th:value="bestSellers">BestSellers</option>
+							</select>
+						</div>
+
+						<div class="input-group col-lg-6 mb-4">
+							<input id="productName" type="text" name="productName" placeholder="Enter Product Name"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+
+						<div class="input-group col-lg-6 mb-4">
+							<input id="productPath" type="text" name="productPath" placeholder="Enter Image URL"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+						<div class="input-group col-lg-6 mb-4">
+							<input id="originalPrice" type="text" name="originalPrice"
+								placeholder="Enter Original Price" class="form-control bg-white border-left-0 border-md"
+								required>
+						</div>
+						<div class="input-group col-lg-6 mb-4">
+							<input id="extrOfferPrice" type="text" name="OfferPrice" placeholder="Enter Offer Price"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+						<div class="input-group col-lg-6 mb-4">
+							<input id="productprice" type="text" name="productDiscount"
+								placeholder="Enter Product Price" class="form-control bg-white border-left-0 border-md"
+								required>
+						</div>
+
+						<div class="input-group col-lg-12 mb-4">
+							<input id="text" type="text" name="productDescription" placeholder="Enter Description"
+								class="form-control bg-white border-left-0 border-md" required>
+						</div>
+
+
+						<button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div th:replace="about-us :: about-us"></div>
+
+</html>

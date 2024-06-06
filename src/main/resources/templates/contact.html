@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/index :: head"></head>
+
+<body>
+	<nav th:replace="~{fragments/index :: offer-nav}"></nav>
+	<nav th:replace="~{fragments/index :: navigation}"></nav>
+	<hr>
+
+	<div th:replace="~{about-us :: about-us}"></div>
+	
+	<div th:replace="~{footer :: footer}"></div>
+	
+</body>
+</html>

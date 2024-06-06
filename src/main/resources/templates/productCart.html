@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/index :: head">
+</head>
+
+<body style="background-color: #eee;">
+
+	<nav th:replace="fragments/index :: offer-nav"></nav>
+
+	<nav th:replace="fragments/index :: navigation"></nav>
+
+	<div th:if="${successMessage}" class="alert alert-success" role="alert">
+		<span th:text="${successMessage}"></span>
+	</div>
+
+
+	<section class="mt-5 mb-5">
+		<div class="container card h-100 py-5">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-10">
+
+					<div class="d-flex justify-content-between align-items-center mb-4">
+						<h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+						<div>
+							<!--<p class="mb-0">
+								<span class="text-muted">Sort by:</span> <a href="#!"
+									class="text-body">price <i class="fas fa-angle-down mt-1"></i></a>
+							</p>-->
+						</div>
+					</div>
+
+
+
+					<div class="card rounded-3 mb-4" th:each="cartItem : ${cartItems}">
+						<div class="card-body p-4">
+							<div class="row d-flex justify-content-between align-items-center">
+								<div class="col-md-2 col-lg-2 col-xl-2">
+									<img th:src="${cartItem.image.productPath}" class="img-fluid rounded-3"
+										alt="Cotton T-shirt">
+								</div>
+								<div class="col-md-3 col-lg-3 col-xl-3">
+									<p class="lead fw-normal mb-2" th:text="${cartItem.image.productName}">Basic T-shirt
+									</p>
+									<!--<p>
+										<span class="text-muted">Size: </span>M <span
+											class="text-muted">Color: </span>Grey
+									</p>-->
+								</div>
+								<div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+									<button class="btn btn-link px-2"
+										onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+										<i class="fas fa-minus"></i>
+									</button>
+
+									<p id="form1" min="0" name="quantity" value="2" type="number"
+										class="form-control form-control-sm" th:text="${cartItem.quantity}" />
+
+									<button class="btn btn-link px-2"
+										onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div>
+								<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+									<b class=" mb-0" th:text="${cartItem.image.productPrice}">
+									</b>
+								</div>
+
+								<div class="col-md-1 col-lg-1 col-xl-1 text-end">
+									<form th:action="@{/cart/{productId}(productId=${cartItem.id})}" method="post">
+										<input type="hidden" name="_method" value="delete">
+										<button type="submit" class="btn btn-outline-danger">
+											<svg xmlns="http://www.w3.org/2000/svg" width="17" height="19"
+												fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+												<path
+													d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+												</path>
+												<path
+													d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+												</path>
+											</svg>
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card mb-4">
+						<div class="card-body ">
+							<!-- 	<div class="form-outline col-xs-2 flex-fill col-">
+								<input type="text" id="form1"
+									class="form-control form-control-sm w-50" /> <label
+									class="form-label" for="form1">Discound code</label>
+							</div>
+							<span class="w-75 col">
+								<button type="button"
+									class="btn btn-outline-warning btn-sm ms-3">Apply</button>
+								<h5 class="w-50 ms-4">
+									Total Amount: <b class="text-success">₹</b><span
+										th:text="${totalAmount}" class="text-success"></span>
+								</h5> -->
+							<div class="row align-items-center">
+								<div class="col-auto">
+									<input type="text" id="" class="form-control" placeholder="Discount code..">
+								</div>
+								<div class="col-auto">
+									<span id="passwordHelpInline" class="form-text btn btn-outline-warning">Apply</span>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-body">
+
+							<div class="row align-items-center">
+
+								<div class="col-auto">
+									<h5>
+										Total Amount: <span th:text="${totalAmount}" class="text-success"></span>
+									</h5>
+								</div>
+								<div class="col-auto">
+									<button class="form-text btn btn-lg btn-warning">Proceed
+										to Pay</button>
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<div th:replace="footer :: footer"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/index :: head">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/index :: offer-nav"></nav>
+	<nav th:replace="fragments/index :: navigation"></nav>
+	<hr>
+
+	<div class="container mb-5 mt-5 p-5">
+		<div class="row">
+			<div class="col-lg-5 col-sm-12 col-md-12 single-right-left ">
+				<div class="grid images_3_of_2">
+					<div class="flexslider">
+						<div class="thumb-image">
+							<img th:src="${product.productPath}" alt="Skyscrapers" class="w-100 h-75 productImage" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-7 pt-3 product-details-right">
+				<!-- 1 -->
+				<h3 th:text="${product.productName}" class="mb-3 product-Name"></h3>
+				<hr class="hr">
+				<div class="product-price">
+					<div class="extraOfferPrice text-success">
+						<span class="extra_offer_price">Extra</span> <b>&#x20B9;</b>
+						<!-- 2 -->
+						<span class="extra_offer_price" th:text="${product.extraOfferPrice}"></span> <span>off</span>
+					</div>
+					<div>
+
+						<!-- 3 -->
+						<span class="item_price" th:text="${product.productPrice}"></span>
+						<span> <span class="original_Price"> <!-- 4 -->
+								&#x20B9;<s th:text="${product.originalPrice}"></s>
+							</span>
+						</span>
+					</div>
+					<div class="certified">
+						<ul>
+							<li>
+								<a href="javascript:void(0);">Delivery time<span>20 Working Days</span></a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<hr class="hr">
+				<div class="w-75 w-sm-100 mt-3">
+					<h5 class="product-description mb-4">Product Description</h5>
+					<!-- 5 -->
+					<span th:text="${product.productDescription}" class="#"> </span>
+				</div>
+
+				<hr class="hr">
+				<div class="pt-5">
+
+					<form class="pb-3" th:action="@{/addToCart/{productId}(productId=${product.id})}" method="post">
+						<span>Quantity:</span>
+						<input type="number" name="quantity" value="1" min="1" class="cartQuantityInput">
+						<button type="submit" class=" btn btn-success"><b>Add to Cart</b></button>
+					</form>
+					<hr class="hr pb-4">
+					<a class="view_more pt-5" th:href="@{'/images/' + ${product.productCategory}}">View More</a>
+					<a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact Us</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title f5 text-success fw-bold " id="exampleModalLabel">Contact Details</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mode">
+						<div>
+							<b>Name:</b><span>Chaitanya Gidijala</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<b>Mobile Number: </b><span>+91 7337072766</span>
+						</div>
+					</div>
+					Tankala Duggivalasa - 532168, Srikakaulam District, A.P
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div th:replace="footer :: footer"></div>
+
+</body>
+
+</html>

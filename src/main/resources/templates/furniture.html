@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/index :: head}"></head>
+
+<body>
+
+	<div class="our_furniture_section pt-5 pb-5 layout_padding" id="furniture_section" th:fragment="furniture">
+		<div class="container">
+			<h1 class="about_taital">Explore Our <span
+					style="background-color: #fee421; color: #fff; padding: 0px 5px;">Furniture</span></h1>
+
+			<div class=" row row-cols-2 row-cols-sm-2 row-cols-md-4 furniture_list">
+				<div class="furniture-items col">
+					<a th:href="@{/images/sofa}" class="item-name">
+						<img alt="Sofas" th:src="@{https://cdn-icons-png.flaticon.com/512/4564/4564774.png}">
+						<p>sofa</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/seating}" class="item-name">
+						<img alt="Seating" th:src="@{https://cdn-icons-png.flaticon.com/512/4787/4787458.png}" />
+						<p>Seating</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/coffeeTable}" class="item-name">
+						<img alt="Cofee Tables" th:src="@{https://cdn-icons-png.flaticon.com/512/2007/2007850.png}">
+						<p>Coffee Tables</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/wardrobes}" class="item-name">
+						<img alt="Wardrobes" th:src="@{https://cdn-icons-png.flaticon.com/512/7055/7055664.png}">
+						<p>Wardrobes</p>
+					</a>
+
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/beds}" class="item-name">
+						<img alt="Beds" th:src="@{https://cdn-icons-png.flaticon.com/512/3030/3030336.png}">
+						<p>Beds</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/bookshelves}" class="item-name">
+						<img alt="Bookshelves" th:src="@{https://cdn-icons-png.flaticon.com/512/4042/4042158.png}">
+						<p>Bookshelves</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/shoeRack}" class="item-name">
+						<img alt="Show-rocks" th:src="@{https://cdn-icons-png.flaticon.com/512/2242/2242254.png}">
+						<p>Shoe Rack</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/studyTable}" class="item-name">
+						<img alt="Study Table" th:src="@{https://cdn-icons-png.flaticon.com/512/4303/4303820.png}">
+						<p>Study Table</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/tvUnits}" class="item-name">
+						<img alt="TV Units" th:src="@{https://cdn-icons-png.flaticon.com/512/10889/10889053.png}">
+						<p>TV Units</p>
+					</a>
+				</div>
+				<div class="furniture-items col">
+					<a th:href="@{/images/bestSeller}" class="item-name">
+						<img alt="Best Seller" th:src="@{https://cdn-icons-png.flaticon.com/512/2851/2851266.png}">
+						<p>Best Seller</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

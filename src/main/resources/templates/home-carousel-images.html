@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/index :: head"></head>
+
+<body>
+
+	<!-- images/kitchen-cuboards/kitchen-cupboard-1.jpg -->
+	<!-- Carousel -->
+	<div id="home-carousel" class="carousel slide" data-bs-ride="carousel" th:fragment="home-carousel-images">
+
+		<!-- Indicators/dots -->
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#home-carousel" data-bs-slide-to="0" class="active"></button>
+			<button type="button" data-bs-target="#home-carousel" data-bs-slide-to="1"></button>
+			<button type="button" data-bs-target="#home-carousel" data-bs-slide-to="2"></button>
+		</div>
+
+		<!-- The slideshow/carousel -->
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossless,ret_img,w_770,h_578/https://www.orientbell.com/blog/wp-content/uploads/2023/04/modern-tv-cabinet-design.jpg"
+					alt="New York" class="d-block p-3" style="width:100%; height: 70%">
+			</div>
+			<div class="carousel-item">
+				<img src="https://www.architectandinteriorsindia.com/cloud/2023/10/12/Aikyam-ED-139-1024x683.jpg"
+					alt="Los Angeles" class="d-block p-3" style="width:100%; height: 70%">
+			</div>
+			<div class="carousel-item">
+				<img src="https://images.woodenstreet.de/image/data/modular%20kitchen/fusionstraight.jpg" alt="Chicago"
+					class="d-block p-3" style="width:100%; height: 70%">
+			</div>
+
+		</div>
+
+		<!-- Left and right controls/icons -->
+		<button class="carousel-control-prev" type="button" data-bs-target="#home-carousel" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#home-carousel" data-bs-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</button>
+	</div>
+
+</body>
+
+</html>

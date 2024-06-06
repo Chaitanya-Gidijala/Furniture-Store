@@ -1,0 +1,148 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/index :: head">
+</head>
+
+<body>
+
+	<nav th:replace="fragments/index :: offer-nav"></nav>
+
+	<nav th:replace="fragments/index :: navigation"></nav>
+	<hr>
+
+	<!--		<div class="row row-cols-1 	row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-4 abovecards">
+			<div class="col" th:each="image: ${images}">
+				<div class="image-card card h-100">
+					<a th:href="@{'/product/' + ${image.Id}}"
+					   style="text-decoration: none">
+						<img th:src="${image.productPath}" class="card-img-top"
+							alt="Skyscrapers" />
+						<div class="card-body image-card-body text-dark">
+							<h5 class="card-title" th:text="${image.productName}"></h5>
+							<p class="card-text" th:text="${image.productDescription}"></p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>-->
+	<div class="container mb-5">
+		<div class="row">
+			<aside class="col-md-3">
+
+				<div class="card">
+					<article class="filter-group">
+						<header class="card-header">
+							<a data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="title">
+								<i class="icon-control fa fa-chevron-down"></i>
+								<h6 class="title">Product type</h6>
+							</a>
+						</header>
+						<div class="filter-content collapse show" id="collapse_1">
+							<div class="card-body">
+								<form class="pb-3">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="Search">
+										<div class="input-group-append">
+											<button class="btn btn-light p-2" type="button">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+													fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+													<path
+														d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+												</svg>
+											</button>
+										</div>
+									</div>
+								</form>
+
+								<ul class="list-menu">
+									<li><a class="dropdown-item nav-link" th:href="@{/images/sofa}">Sofas</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/seating}">Seating</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/coffeeTable}">Coffee
+											Tables</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/wardrobes}">Wardrobes</a>
+									</li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/beds}">Beds</a></li>
+									<li><a class="dropdown-item nav-link"
+											th:href="@{/images/bookshelves}">bookshelves</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/shoeRack}">Shoe-Rack</a>
+									</li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/dining}">Dining</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/studyTable}">Study
+											Table</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/tvUnits}">TV Units</a></li>
+									<li><a class="dropdown-item nav-link" th:href="@{/images/bestSeller}">Best
+											Seller</a></li>
+								</ul>
+
+							</div> <!-- card-body.// -->
+						</div>
+					</article> <!-- filter-group  .// -->
+					<article class="filter-group">
+						<header class="card-header">
+							<a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true"
+								class="title">
+								<i class="icon-control fa fa-chevron-down"></i>
+								<h6 class="title">Colors </h6>
+							</a>
+							<ul class="list-menu">
+								<li><a class="dropdown-item nav-link">White</a></li>
+								<li><a class="dropdown-item nav-link">Brown</a></li>
+								<li><a class="dropdown-item nav-link">Red</a></li>
+							</ul>
+						</header>
+
+					</article>
+				</div>
+
+			</aside>
+
+
+			<main class="col-md-9">
+
+				<header class="border-bottom mb-4 pb-3">
+					<div class="form-inline">
+						<span class="mr-md-auto" th:text="${productCount}"></span> Items found </span>
+					</div>
+				</header><!-- sect-heading -->
+
+				<div class="row">
+
+					<div th:if="${#lists.isEmpty(images)}" class="no-products">
+						Sorry, currently these products are not available..
+					</div>
+					<div class="col-md-4" th:each="image: ${images}">
+						<a th:href="@{'/product/' + ${image.Id}}" style="text-decoration: none">
+							<div class="card card-product-grid image-card" style="height: 20rem;">
+								<div class="img-wrap">
+									<img th:src="${image.productPath}" class="img-fluid card-img-top">
+									<p class="btn-overlay"><i class="fa fa-search-plus"></i> Quick view</p>
+								</div> <!-- img-wrap.// -->
+								<figcaption class="info-wrap">
+									<div class="fix-height">
+										<a class="card-title" th:text="${image.productName}"></a>
+										<hr>
+										<div class="mb-1">
+											<span class=" fw-bold text-success" th:text="${image.productPrice}"></span>
+
+											<span class="text-muted">&#8377</span>
+											<del class="price-old text-muted card-text"
+												th:text="${image.originalPrice}"></del>
+										</div> <!-- price-wrap.// -->
+									</div>
+								</figcaption>
+							</div>
+						</a>
+					</div> <!-- col.// -->
+				</div> <!-- row end.// -->
+
+				<nav th:replace="~{pagination :: pagination}"></nav>
+			</main>
+
+
+		</div>
+	</div>
+
+	<div th:replace="footer :: footer"></div>
+</body>
+
+</html>
